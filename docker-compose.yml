@@ -58,8 +58,7 @@ services:
     image: mcncclovett/ntopng
     restart: unless-stopped
     network_mode: host
-    command:
-      - bash -c "redis-server /etc/redis.conf && ntopng --local-networks 10.0.0.0/8"
+    command: bash -c "redis-server /etc/redis.conf && ntopng --local-networks 10.0.0.0/8"
     volumes:
       - ntopng-config:/etc/ntopng
 volumes:
