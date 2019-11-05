@@ -54,10 +54,19 @@ services:
     volumes:
       - smokeping-data:/data
       - smokeping-config:/config
+  ntopng:
+    image: mcncclovett/ntopng
+    restart: unless-stopped
+    network: host
+    command:
+      - bash -c "redis-server /etc/redis.conf && ntopng --local-networks 10.0.0.0/8"
+    volumes:
+      - ntopng-config:/etc/ntopng
 volumes:
   cacti-db:
   cacti-data:
   cacti-backups:
   smokeping-data:
   smokeping-config:
+  ntopng-config:
   
