@@ -5,7 +5,7 @@
 cat <<EOF >/etc/yum.repos.d/epel.repo
 [epel]
 name=Extra Packages for Enterprise Linux 7 - $basearch
-baseurl=http://packages.oit.ncsu.edu/epel/7/$basearch
+baseurl=http://mirror.grid.uchicago.edu/pub/linux/epel/7/$basearch
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=1
