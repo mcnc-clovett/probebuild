@@ -10,9 +10,9 @@ curl -fsSL https://get.docker.com/ | sh
 
 yum install -y tcpdump wireshark iperf iperf3 httpd cockpit cockpit-docker docker-compose
 
-firewall-cmd --add-service=http --add-service=https
+firewall-cmd --add-service=http --add-service=https --add-service=cockpit
 firewall-cmd --add-port=3000/tcp --add-port=3333/tcp --add-port=5001/tcp \
-    --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp --add-service=cockpit
+    --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp
 firewall-cmd --runtime-to-permanent
 
 adduser iperf -s /sbin/nologin
