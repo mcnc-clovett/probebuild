@@ -43,7 +43,9 @@ EOF
 yum install -y docker-compose
 docker-compose up -d
 
+ln -s /var/lib/docker/volumes ~/docker-volumes
+
 firewall-cmd --add-service=http --add-service=https
-firewall-cmd --add-port=3000/tcp --add-port=3333/tcp --add-port=5001/tcp --add-port=5001/udp \
-    --add-port=5201/tcp --add-port=5201/udp
+firewall-cmd --add-port=3000/tcp --add-port=3333/tcp --add-port=5001/tcp \
+    --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp
 firewall-cmd --runtime-to-permanent
