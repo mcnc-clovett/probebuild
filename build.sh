@@ -4,7 +4,7 @@ yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 
 sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/epel.repo
 sed -i 's/metalink/#metalink/g' /etc/yum.repos.d/epel.repo
-sed -i 's/download\.fedoraproject\.org/mirror\.grid\.uchicago\.edu/g' /etc/yum.repos.d/epel.repo
+sed -i 's/http://download\.fedoraproject\.org\/pub/http://mirror\.grid\.uchicago\.edu\/pub\/linux/g' /etc/yum.repos.d/epel.repo
 
 curl -fsSL https://get.docker.com/ | sh
 
