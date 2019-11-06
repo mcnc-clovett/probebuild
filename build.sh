@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #yum install -y epel-release
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 curl -fsSL https://get.docker.com/ | sh
 
