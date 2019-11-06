@@ -1,7 +1,17 @@
 #!/bin/bash
 
-#yum install -y epel-release
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+cat <<EOF >/etc/yum.repos.d/epel.repo
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+baseurl=http://packages.oit.ncsu.edu/epel/7/$basearch
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch&infra=$infra&content=$contentdir
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+EOF
 
 curl -fsSL https://get.docker.com/ | sh
 
