@@ -2,9 +2,9 @@
 
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-#sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/epel.repo
-#sed -i 's/metalink/#metalink/g' /etc/yum.repos.d/epel.repo
-#sed -i 's/http://download\.fedoraproject\.org\/pub/http://mirror\.grid\.uchicago\.edu\/pub\/linux/g' /etc/yum.repos.d/epel.repo
+sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/epel.repo
+sed -i 's/metalink/#metalink/g' /etc/yum.repos.d/epel.repo
+sed -i 's/http://download\.fedoraproject\.org\/pub/http://mirror\.grid\.uchicago\.edu\/pub\/linux/g' /etc/yum.repos.d/epel.repo
 
 curl -fsSL https://get.docker.com/ | sh
 
@@ -12,7 +12,7 @@ yum install -y tcpdump wireshark iperf iperf3 httpd cockpit cockpit-docker docke
 
 firewall-cmd --add-service=http --add-service=https
 firewall-cmd --add-port=3000/tcp --add-port=3333/tcp --add-port=5001/tcp \
-    --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp
+    --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp --add-service=cockpit
 firewall-cmd --runtime-to-permanent
 
 adduser iperf -s /sbin/nologin
