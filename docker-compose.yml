@@ -2,6 +2,7 @@ version: '2'
 services:
   cacti:
     image: "mcncclovett/cacti"
+    container_name: cacti
     restart: unless-stopped
     ports:
       - "8080:80"
@@ -23,6 +24,7 @@ services:
       - db
   db:
     image: "percona:5.7.14"
+    container_name: db
     restart: unless-stopped
     ports:
       - "3306:3306"
@@ -47,6 +49,7 @@ services:
       - cacti-db:/var/lib/mysql
   smokeping:
     image: "linuxserver/smokeping"
+    container_name: smokeping
     restart: unless-stopped
     ports:
       - "8081:80"
@@ -57,10 +60,12 @@ services:
       - smokeping-config:/config
   redis:
     image: redis:alpine
+    container_name: redis
     restart: unless-stopped
     network_mode: host
   ntopng:
     image: mcncclovett/ntopng
+    container_name: ntopng
     restart: unless-stopped
     network_mode: host
     command: bash -c "ntopng --local-networks 10.0.0.0/8 --redis localhost"
