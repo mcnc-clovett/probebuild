@@ -1,7 +1,7 @@
 version: '2'
 services:
   cacti:
-    image: "clovett/cacti"
+    image: "mcncclovett/cacti"
     restart: unless-stopped
     ports:
       - "8080:80"
@@ -66,8 +66,8 @@ services:
     command: bash -c "redis-server /etc/redis.conf && ntopng --local-networks 10.0.0.0/8"
     volumes:
       - ntopng-config:/etc/ntopng
-    depends:
-      redis
+    depends_on:
+      - redis
 volumes:
   cacti-db:
   cacti-data:
