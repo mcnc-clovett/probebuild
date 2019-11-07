@@ -29,7 +29,9 @@ systemctl start iperf3
 systemctl enable iperf
 systemctl enable iperf3
 
-PROBEIP=`hostname -i` cat <<EOF >/var/www/html/index.html
+PROBEIP=$(hostname -i) 
+
+cat <<EOF >/var/www/html/index.html
 <HTML>
 
 <HEAD>
@@ -39,10 +41,10 @@ If the hyperlinks below do not work, go to address associated beneath.<br><br>
 <BODY>
 
 <a href="#" onclick="javascript:window.location.port=8081">Smokeping</a><br>
-http://$PROBEIP:8081/smokeping/sm.cgi<br><br>
+http://$PROBEIP:8081<br><br>
 
 <a href="#" onclick="javascript:window.location.port=8080">Cacti</a><br>
-http://$PROBEIP:8080/cacti/<br><br>
+http://$PROBEIP:8080<br><br>
 
 <a href="#" onclick="javascript:window.location.port=3000">NTop</a><br>
 http://$PROBEIP:3000
