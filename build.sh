@@ -17,6 +17,8 @@ firewall-cmd --runtime-to-permanent
 
 adduser iperf -s /sbin/nologin
 cp ./systemd/* /etc/systemd/system/
+systemctl start httpd
+systemctl enable httpd
 systemctl start docker
 systemctl enable docker
 systemctl start cockpit
