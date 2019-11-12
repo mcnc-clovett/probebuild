@@ -2,11 +2,6 @@
 
 SMOKETARGETS=/docker/smokeping/config/Targets
 
-cp $1 /docker/cacti/data/
-chmod 600 /docker/cacti/data/$1
-
-docker exec cacti /createdevices.sh $1
-
 echo "*** Targets ***
 
 probe = FPing
@@ -28,5 +23,3 @@ title = $var1 ($var2)
 host = $var2
 " >> $SMOKETARGETS
 done <$1
-
-docker restart smokeping

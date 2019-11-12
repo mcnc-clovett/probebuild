@@ -17,9 +17,8 @@ services:
       - INITIALIZE_DB=1
       - TZ=America/New_York
     volumes:
-      - cacti-data:/cacti
-      - cacti-backups:/backups
-      - cacti-tmp:/tmp
+      - /docker/cacti/data:/cacti
+      - /docker/cacti/backups:/backups
     links:
       - db
   db:
@@ -46,7 +45,7 @@ services:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - TZ=America/New_York
     volumes:
-      - cacti-db:/var/lib/mysql
+      - /docker/mysql:/var/lib/mysql
   smokeping:
     image: "linuxserver/smokeping"
     container_name: smokeping
@@ -56,8 +55,8 @@ services:
     environment:
       - TZ=America/New_York
     volumes:
-      - smokeping-data:/data
-      - smokeping-config:/config
+      - /docker/smokeping/data:/data
+      - /docker/smokeping/config:/config
   redis:
     image: redis:alpine
     container_name: redis
@@ -70,15 +69,8 @@ services:
     network_mode: host
     command: bash -c "ntopng --local-networks 10.0.0.0/8 --redis localhost"
     volumes:
-      - ntopng-config:/etc/ntopng
+      - /docker/ntopng/config:/etc/ntopng
     depends_on:
       - redis
 volumes:
-  cacti-db:
-  cacti-data:
-  cacti-backups:
   cacti-tmp:
-  smokeping-data:
-  smokeping-config:
-  ntopng-config:
-  

@@ -40,13 +40,13 @@ If the hyperlinks below do not work, go to address associated beneath.<br><br>
 
 <BODY>
 
-<a href="#" onclick="javascript:window.location.port=8081">Smokeping</a><br>
+<a href="http://$PROBEIP:8081" onclick="javascript:window.location.port=8081">Smokeping</a><br>
 http://$PROBEIP:8081<br><br>
 
-<a href="#" onclick="javascript:window.location.port=8080">Cacti</a><br>
+<a href="http://$PROBEIP:8080" onclick="javascript:window.location.port=8080">Cacti</a><br>
 http://$PROBEIP:8080<br><br>
 
-<a href="#" onclick="javascript:window.location.port=3000">NTop</a><br>
+<a href="http://$PROBEIP:3000" onclick="javascript:window.location.port=3000">NTop</a><br>
 http://$PROBEIP:3000
 
 </BODY>
@@ -55,5 +55,3 @@ http://$PROBEIP:3000
 EOF
 
 docker-compose up -d
-
-ln -s /var/lib/docker/volumes ~/docker-volumes
