@@ -49,7 +49,7 @@ http://$PROBEIP:8080<br><br>
 <a href="http://$PROBEIP:3000" onclick="javascript:window.location.port=3000">NTop</a><br>
 http://$PROBEIP:3000<br><br>
 
-<a href="http://$PROBEIP:9090" onclick="javascript:window.location.port=9090">Cockpit</a><br>
+<a href="https://$PROBEIP:9090" onclick="javascript:window.location.port=9090">Cockpit</a><br>
 https://$PROBEIP:9090
 
 </BODY>
