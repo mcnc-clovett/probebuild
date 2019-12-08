@@ -1,10 +1,10 @@
 #!/bin/bash
 
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+cp ./ZscalerRootCertificate-2048-SHA256.crt /etc/pki/ca-trust/source/anchors/
 
-#sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/epel.repo
-#sed -i 's/metalink/#metalink/g' /etc/yum.repos.d/epel.repo
-#sed -i 's/http://download\.fedoraproject\.org\/pub/http://mirror\.grid\.uchicago\.edu\/pub\/linux/g' /etc/yum.repos.d/epel.repo
+update-ca-trust
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 curl -fsSL https://get.docker.com/ | sh
 
@@ -47,10 +47,7 @@ http://$PROBEIP:8081<br><br>
 http://$PROBEIP:8080<br><br>
 
 <a href="http://$PROBEIP:3000" onclick="javascript:window.location.port=3000">NTop</a><br>
-http://$PROBEIP:3000<br><br>
-
-<a href="https://$PROBEIP:9090" onclick="javascript:window.location.port=9090">Cockpit</a><br>
-https://$PROBEIP:9090
+http://$PROBEIP:3000
 
 </BODY>
 
