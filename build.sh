@@ -38,7 +38,7 @@ systemctl enable iperf
 systemctl enable iperf3
 
 # Create homepage for web-based tools
-PROBEIP=$(hostname -i) 
+PROBEIP=$(hostname -I | awk '{print $1}')
 
 cat <<EOF >/var/www/html/index.html
 <HTML>
