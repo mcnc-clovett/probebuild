@@ -21,7 +21,7 @@ remark = Welcome to the SmokePing website of WORKS Company. \
 while IFS="," read var1 var2 var3
 
 do
-DEVICENAME=$(echo $var1 | sed 's/ //g')
+DEVICENAME=$(echo $var1 | sed -r 's/(\W|_)//g')
 echo "+ $DEVICENAME
 menu = $var1
 title = $var1 ($var2)
