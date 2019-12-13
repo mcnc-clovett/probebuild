@@ -38,7 +38,6 @@ systemctl enable iperf
 systemctl enable iperf3
 
 # Create homepage for web-based tools
-PROBEIP=$(hostname -I | awk '{print $1}')
 
 cat <<EOF >/var/www/html/index.html
 <HTML>
@@ -49,17 +48,17 @@ If the hyperlinks below do not work, go to address associated beneath.<br><br>
 
 <BODY>
 
-<a href="http://$PROBEIP:8081" onclick="javascript:window.location.port=8081">Smokeping</a><br>
-http://$PROBEIP:8081<br><br>
+<a href="#" onclick="javascript:window.location.port=8081">Smokeping</a><br>
+http://&lt;PROBEIP&gt;:8081<br><br>
 
-<a href="http://$PROBEIP:8080" onclick="javascript:window.location.port=8080">Cacti</a><br>
-http://$PROBEIP:8080<br><br>
+<a href="#" onclick="javascript:window.location.port=8080">Cacti</a><br>
+http://&lt;PROBEIP&gt;:8080<br><br>
 
-<a href="http://$PROBEIP:3000" onclick="javascript:window.location.port=3000">NTop</a><br>
-http://$PROBEIP:3000<br><br>
+<a href="#" onclick="javascript:window.location.port=3000">NTop</a><br>
+http://&lt;PROBEIP&gt;:3000<br><br>
 
-<a href="https://$PROBEIP:9090" onclick="javascript:window.location.port=9090">Cockpit</a><br>
-https://$PROBEIP:9090
+<a href="#" onclick="javascript:window.location.port=9090">Cockpit</a><br>
+https://&lt;PROBEIP&gt;:9090
 
 </BODY>
 
