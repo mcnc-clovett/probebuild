@@ -18,7 +18,7 @@ yum install -y tcpdump wireshark iperf iperf3 httpd cockpit cockpit-docker docke
 
 # Allow access to probe tools through the local firewall
 firewall-cmd --add-service=http --add-service=https --add-service=cockpit
-firewall-cmd --add-port=3000/tcp --add-port=3333/tcp --add-port=5001/tcp \
+firewall-cmd --add-port=3000/tcp --add-port=3001/tcp --add-port=5001/tcp \
     --add-port=5001/udp --add-port=5201/tcp --add-port=5201/udp
 firewall-cmd --runtime-to-permanent
 
@@ -51,11 +51,11 @@ If the hyperlinks below do not work, go to address associated beneath.<br><br>
 <a href="#" onclick="javascript:window.location.port=8081">Smokeping</a><br>
 http://&lt;PROBEIP&gt;:8081<br><br>
 
-<a href="#" onclick="javascript:window.location.port=8443">Cacti</a><br>
-http://&lt;PROBEIP&gt;:8443<br><br>
+<a href="#" onclick="javascript:window.location.port=8080">Cacti</a><br>
+https://&lt;PROBEIP&gt;<br><br>
 
 <a href="#" onclick="javascript:window.location.port=3001">NTop</a><br>
-https://&lt;PROBEIP&gt;:3000<br><br>
+https://&lt;PROBEIP&gt;:3001<br><br>
 
 <a href="#" onclick="javascript:window.location.port=9090">Cockpit</a><br>
 https://&lt;PROBEIP&gt;:9090
