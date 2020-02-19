@@ -51,11 +51,11 @@ If the hyperlinks below do not work, go to address associated beneath.<br><br>
 <a href="#" onclick="javascript:window.location.port=8081">Smokeping</a><br>
 http://&lt;PROBEIP&gt;:8081<br><br>
 
-<a href="#" onclick="javascript:window.location.port=8080">Cacti</a><br>
-http://&lt;PROBEIP&gt;:8080<br><br>
+<a href="#" onclick="javascript:window.location.port=8443">Cacti</a><br>
+http://&lt;PROBEIP&gt;:8443<br><br>
 
-<a href="#" onclick="javascript:window.location.port=3000">NTop</a><br>
-http://&lt;PROBEIP&gt;:3000<br><br>
+<a href="#" onclick="javascript:window.location.port=3001">NTop</a><br>
+https://&lt;PROBEIP&gt;:3000<br><br>
 
 <a href="#" onclick="javascript:window.location.port=9090">Cockpit</a><br>
 https://&lt;PROBEIP&gt;:9090
