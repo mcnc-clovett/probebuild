@@ -34,10 +34,10 @@ You can access most of the web-based services at *http://<probeip>*. However, th
 | Service | Port |
 | ------ | ------ |
 | Cockpit | 9090 |
-| Cacti | 8080, 8443 |
+| Cacti | 8080, 443 |
 | Smokeping | 8081 |
 | iperf | 5001 |
 | iperf3 | 5201 |
-| ntopng | 3000 |
+| ntopng | 3000, 3001 |
 
 The default login for Cockpit is the same as your *root* user on the linux host. All other logins are admin/admin by default.
