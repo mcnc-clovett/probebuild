@@ -19,12 +19,15 @@ services:
       - TZ=America/New_York
     volumes:
       - /docker/cacti/data:/cacti
+      - /docker/cacti/spine:/spine
       - /docker/cacti/backups:/backups
     links:
       - db
   db:
-    image: "percona:5.7.14"
-    container_name: db
+    image: "mariadb:10.3"
+    container_name: cacti_db
+    domainname: example.com
+    hostname: db
     restart: unless-stopped
     stop_grace_period: 20s
     ports:
@@ -43,6 +46,11 @@ services:
       - --innodb_flush_log_at_timeout=3
       - --innodb_read_io_threads=32
       - --innodb_write_io_threads=16
+      - --innodb_buffer_pool_instances=9
+      - --innodb_file_format=Barracuda
+      - --innodb_large_prefix=1
+      - --innodb_io_capacity=5000
+      - --innodb_io_capacity_max=10000
     environment:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - TZ=America/New_York
