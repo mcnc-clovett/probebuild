@@ -67,3 +67,4 @@ EOF
 
 # Download and start docker containers
 docker-compose up -d
+docker cp createdevices.sh cacti:/
