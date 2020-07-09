@@ -66,6 +66,7 @@ https://&lt;PROBEIP&gt;:9090
 EOF
 
 # Download and start docker containers
+ln -s /var/lib/docker/volumes /docker
 docker-compose up -d
 docker cp createdevices.sh cacti:/
 docker exec cacti chmod +x /createdevices.sh

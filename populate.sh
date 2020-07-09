@@ -1,6 +1,9 @@
 #!/bin/bash
 
-SMOKETARGETS=/docker/smokeping/config/Targets
+docker cp createdevices.sh cacti:/
+docker exec cacti chmod +x /createdevices.sh
+
+SMOKETARGETS=/docker/probebuild_smokeping-config/_data/Targets
 
 while getopts ":hf:" opt; do
     case $opt in
@@ -25,8 +28,8 @@ done
 #tr -d '\r' < $1 > $1
 
 # Place device list in the Cacti container and add devices.
-cp "$DEVFILE" /docker/cacti/data/
-chmod 600 "/docker/cacti/data/$DEVFILE"
+cp "$DEVFILE" /docker/probebuild_cacti-data/_data
+chmod 600 "/docker/probebuild_cacti-data/_data/$DEVFILE"
 #docker exec cacti /createdevices.sh -d -g -f "$DEVFILE"
 
 # Create blank Smokeping Targets file
